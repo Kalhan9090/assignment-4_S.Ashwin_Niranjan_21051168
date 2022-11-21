@@ -1,0 +1,92 @@
+#include <iostream>
+
+using namespace std;
+
+class student{
+    protected:
+        string name;
+        int roll;
+        int age;
+    public:
+        virtual void show_data();
+        string get_data(string Name){
+            name = Name;
+            return name;
+        }
+        int get_roll(int Roll){
+            roll = Roll;
+            return roll;
+        }
+        int get_data(int Age){
+            age = Age;
+            return age;
+        }
+};
+class test:public student{
+    protected:
+        int s1, s2, s3, s4, s5, tot;
+    public:
+        test(){
+            cout <<"Enter the marks in subject 1: ";
+            cin >> s1;
+            cout <<"Enter the marks in subject 2: ";
+            cin >> s2;
+            cout <<"Enter the marks in subject 3: ";
+            cin >> s3;
+            cout <<"Enter the marks in subject 4: ";
+            cin >> s4;
+            cout <<"Enter the marks in subject 5: ";
+            cin >> s5;
+        }
+        ~test(){
+            cout <<"Destructor is called";
+        }
+        void show_data(){
+            cout <<"\nThe name of the student is: " << name;
+            cout <<"\nThe age of the student is: " << age;
+            cout <<"\nThe roll number of the student is: " << roll;
+            cout <<"\nThe marks in subjects are: ";
+            cout <<"\nSubject 1: " << s1;
+            cout <<"\nSubject 2: " << s2;
+            cout <<"\nSubject 3: " << s3;
+            cout <<"\nSubject 4: " << s4;
+            cout <<"\nSubject 5: " << s5;
+        }
+};
+class sports:public student{
+    protected:
+        int basketball, tennis, football;
+    public:
+        sports(){
+            cout <<"Enter the marks in basketball: ";
+            cin >> basketball;
+            cout <<"Enter the marks in tennis: ";
+            cin >> tennis;
+            cout <<"Enter the marks in football: ";
+            cin >> football;
+        }
+        void show_data(){
+            cout <<"\nThe name of the student is: " << name;
+            cout <<"\nThe age of the student is: " << age;
+            cout <<"\nThe roll number of the student is: " << roll;
+            cout <<"\nThe marks in sports are: ";
+            cout <<"\nBasketball: " << basketball;
+            cout <<"\nTennis: " << tennis;
+            cout <<"\nFootball: " << football;
+        }
+};
+int main(){
+    student obj1;
+    obj1.get_data("Ashwin");
+    obj1.get_data(19);
+    obj1.get_roll(21051168);
+    
+    test obj2;
+    obj2.show_data();
+    
+    sports obj3;
+    obj3.show_data();
+    
+    return 0;
+}
+
